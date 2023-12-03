@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:movie_app/ModelData.dart';
+import 'package:movie_app/API/ModelData.dart';
 import 'package:http/http.dart' as http;
 
 class Api {

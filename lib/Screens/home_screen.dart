@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/see_more_screen.dart';
-import 'package:movie_app/carousel_slider.dart';
-import 'now_playing_Screen.dart';
+import 'package:movie_app/Screens/see_more_screen.dart';
+import 'package:movie_app/Screens/carousel_slider.dart';
+import 'movie_list.dart';
 
 class HomeScreen extends StatelessWidget{
   @override
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget{
                 ),
               ),
               SizedBox(height: 17,),
-              NowPlaying(endp: "https://api.themoviedb.org/3/movie/upcoming?api_key="),
+              MovieList(endp: "https://api.themoviedb.org/3/movie/upcoming?api_key="),
               SizedBox(height: 15,),
 
               //Now Playing
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget{
                 ),
               ),
               SizedBox(height: 17,),
-              NowPlaying(endp: "https://api.themoviedb.org/3/movie/now_playing?api_key="),
+              MovieList(endp: "https://api.themoviedb.org/3/movie/now_playing?api_key="),
               SizedBox(height: 15,),
 
               // Top Rated
@@ -97,7 +97,7 @@ class HomeScreen extends StatelessWidget{
                 ),
               ),
               SizedBox(height: 17,),
-              NowPlaying(endp: "https://api.themoviedb.org/3/movie/top_rated?api_key="),
+              MovieList(endp: "https://api.themoviedb.org/3/movie/top_rated?api_key="),
               SizedBox(height: 5,),
             ],
           ),

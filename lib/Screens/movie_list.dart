@@ -1,18 +1,17 @@
-import 'package:movie_app/movie_detail.dart';
 
-import 'main.dart';
+import 'package:movie_app/Screens/movie_detail.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/api.dart';
-import 'package:movie_app/ModelData.dart';
+import 'package:movie_app/API/api.dart';
+import 'package:movie_app/API/ModelData.dart';
 
-class NowPlaying extends StatefulWidget{
+class MovieList extends StatefulWidget{
   final String? endp;
-  NowPlaying({ this.endp});
+  MovieList({ this.endp});
   @override
-  State<NowPlaying> createState() => _NowPlayingState();
+  State<MovieList> createState() => _MovieListState();
 }
 
-class _NowPlayingState extends State<NowPlaying> {
+class _MovieListState extends State<MovieList> {
   late Future<List<Movie>> nowPlayingMovie;
 
   @override
@@ -34,7 +33,7 @@ class _NowPlayingState extends State<NowPlaying> {
             );
           } else if (snapshot.hasError) {
             return Center(
-              child: Text('Error fetching data'),
+              child: Text('Error occurred: ${snapshot.error}'),
             );
           } else if (snapshot.hasData
           ) {
@@ -48,33 +47,41 @@ class _NowPlayingState extends State<NowPlaying> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      InkWell(
-                       /* onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetail(
-                              title: movie.title, desc: movie.desc, poster: movie.poster, releaseDate: movie.releaseDate,
-                            vote: movie.vote,
-                          ),));
-                        },*/
-                        child: Container(
+                      Container(
+                        height: 190,
+                        width: 130,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(7)),
+                          child: movie.poster != null
+                              ? InkWell(
+                            onTap: (){
+                              //null checks
+                              movie.title != null &&
+                                  movie.desc != null &&
+                                  movie.poster != null &&
+                                  movie.releaseDate != null &&
+                                  movie.vote !=null ?
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetail(
+                                title: movie.title, desc: movie.desc, poster: movie.poster, releaseDate: movie.releaseDate,
+                                vote: movie.vote,
+                              ),
+                              )
+                              ): Text("No data available");
 
-                          height: 190,
-                          width: 130,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                            child: movie.poster != null
-                                ? Image.network(
-                              '${Api.poster_baseuri}${movie.poster}',
-                              fit: BoxFit.cover,
-                            )
-                                : Container(
-                              color: Colors.grey,
-                              // Placeholder if no image
-                            ),
+                            },
+                                child: Image.network(
+                            '${Api.poster_baseuri}${movie.poster}',
+                            fit: BoxFit.cover,
+                          ),
+                              )
+                              : Container(
+                            color: Colors.grey,
+                            // Placeholder if no image
                           ),
                         ),
                       ),
                       SizedBox(
-                        width: 170,// Width same as the image
+                        width: 130,// Width same as the image
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Text(

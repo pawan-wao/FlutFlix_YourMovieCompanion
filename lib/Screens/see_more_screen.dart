@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
-import 'package:movie_app/api.dart';
-import 'package:movie_app/ModelData.dart';
+import 'package:movie_app/Screens/movie_detail.dart';
+import 'package:movie_app/API/api.dart';
+import 'package:movie_app/API/ModelData.dart';
 
 class SeeMore extends StatefulWidget {
   String title;
@@ -29,6 +29,11 @@ class _SeeMoreState extends State<SeeMore> {
       appBar: AppBar(
         title: Text('${widget.title}'),
         backgroundColor: Color(0xFF333333),
+        leading: InkWell(
+          onTap: (){
+            Navigator.pop(context);
+          },
+            child: Icon(Icons.arrow_back_ios_rounded,color: Color(0xFFFD3920))),
         elevation: 0,
       ),
       body: FutureBuilder(
@@ -41,6 +46,7 @@ class _SeeMoreState extends State<SeeMore> {
           } else if (!snapshot.hasData || snapshot.data == null) {
             return Center(child: Text('No Data Available'));
           } else {
+
             return GridView.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -53,6 +59,8 @@ class _SeeMoreState extends State<SeeMore> {
               ),
               itemCount: snapshot.data!.length,
               itemBuilder: (context, index) {
+                Movie movie = snapshot.data![index];
+
                 return Padding(
                   padding: const EdgeInsets.only(left: 15, right: 15),
                   child: Column(
@@ -67,9 +75,26 @@ class _SeeMoreState extends State<SeeMore> {
                             color: Colors.black,
                             child: Material(
                               elevation: 1.5,
-                              child: Image.network(
-                                "${Api.poster_baseuri}${snapshot.data![index].poster}",
-                                fit: BoxFit.cover, filterQuality: FilterQuality.medium
+                              child: InkWell(
+                                onTap: (){
+                                  //null checks
+                                 movie.title != null &&
+                                      movie.desc != null &&
+                                      movie.poster != null &&
+                                      movie.releaseDate != null &&
+                                      movie.vote !=null ?
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetail(
+                                    title: movie.title, desc: movie.desc, poster: movie.poster, releaseDate: movie.releaseDate,
+                                    vote: movie.vote,
+                                  ),
+                                  )
+                                  ): Text("No data available");
+
+                                },
+                                child: Image.network(
+                                  "${Api.poster_baseuri}${snapshot.data![index].poster}",
+                                  fit: BoxFit.cover, filterQuality: FilterQuality.medium
+                                ),
                               ),
                             ),
                           ),
