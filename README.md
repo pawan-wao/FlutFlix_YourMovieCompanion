@@ -5,7 +5,7 @@
 ##  What's FlutFlix?
 FluFlix is a cutting-edge Flutter application designed to provide users with comprehensive details about the latest movies.\
 It offers movie plot overviews, extensive details, and a captivating user interface to enrich the movie browsing experience.\
-Powered by the TMDB API, FluFlix brings a world of movies to your fingertips.\
+Powered by the TMDB API, FluFlix brings a world of movies to your fingertips.
 
 
 ## Tech Stack
@@ -40,7 +40,7 @@ https://bit.ly/3RtaMzX
 1. Clone the repository
 
 ```bash
-git clone https://github.com/pawan-wao/TravelApp_flutter.git
+git clone https://github.com/pawan-wao/FlutFlix_YourMovieCompanion.git
 ```
 2. Clone the repository
 Launch Android Studio.\
