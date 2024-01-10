@@ -1,5 +1,3 @@
-
-
 🎥 Introducing FlutFlix 
 
 ##  What's FlutFlix?
