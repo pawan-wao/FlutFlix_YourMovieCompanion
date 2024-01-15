@@ -7,7 +7,6 @@ Powered by the TMDB API, FluFlix brings a world of movies to your fingertips.
 
 
 ## Tech Stack
-
 **TMDB API:** The Movie Database API serves as the backbone for fetching movie-related data.
 
 **Flutter:** Google's UI toolkit for building natively compiled applications for mobile, web, and desktop from a single codebase.
