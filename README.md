@@ -13,7 +13,6 @@ Powered by the TMDB API, FluFlix brings a world of movies to your fingertips.
 
 **Android Studio:** The official IDE for Android development.
 
-
 ## App Preview
 ![Travel_app_demo](https://github.com/pawan-wao/FlutFlix_MovieApp/assets/119276655/9da7cfe2-de4b-4732-a225-c0a8cd397f90)
 ![Travel_app_demo (2)](https://github.com/pawan-wao/FlutFlix_MovieApp/assets/119276655/2513a78b-19f3-425a-b537-7a8da29810a3)
