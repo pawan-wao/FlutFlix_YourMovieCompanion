@@ -17,7 +17,6 @@ Powered by the TMDB API, FluFlix brings a world of movies to your fingertips.
 ![Travel_app_demo (1)](https://github.com/pawan-wao/FlutFlix_MovieApp/assets/119276655/b3e7c878-dfe7-4157-9c0a-7b98e0f23eab)
 ![flutflix_3 2](https://github.com/pawan-wao/FlutFlix_MovieApp/assets/119276655/612e1871-008d-4000-b3e7-a65a8a371885)
 
-
 ## 📥 Apps's video preview:
 have a look on apps's video preview on my Likdin Post:
 https://bit.ly/3uoIzRv
